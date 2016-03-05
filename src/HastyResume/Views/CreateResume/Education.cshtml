@@ -50,24 +50,28 @@
             <div class="col-lg-6 col-md-6 form-basic animated slideInLeft">
                 <h1 class="text-center">Education History</h1>
                 <hr style="border-width:3px;border-color:orange;">
-                <form>
+                <form asp-action="Education">
+                    <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <section id="eduFieldWrapper">
-                            <label for="schoolName">Institution:</label>
-                            <input type="text" class="form-control" id="schoolName" placeholder="School Name"></input>
+                            <label asp-for="Edu1_SchoolName">Institution: </label>/>
+                            <input asp-for="Edu1_SchoolName" class="form-control" id="schoolName" placeholder="School Name">
+                            <span asp-validation-for="Edu1_SchoolName" class="text-danger" />
                             <br>
-                            <label for="completionDate">End Date:</label>
-                            <input type="text" class="form-control" id="completionDate" placeholder="mm/dd/yy"></input>
+                            <label asp-for="Edu1_CompletionDate">Completion Date:</label>
+                            <input asp-for="Edu1_CompletionDate" class="form-control" id="completionDate" placeholder="mm/dd/yy">
+                            <span asp-validation-for="Edu1_CompletionDate" class="text-danger"/>
                             <br>
-                            <label for="eduText">Tell Us More:</label>
-                            <textarea style="max-width:100%" type="text" class="form-control" id="eduText"></textarea>
+                            <label asp-for="Edu1_BodyText">Tell Us More:</label>
+                            <input asp-for="Edu1_BodyText" textarea style="max-width:100%" type="text" class="form-control" id="eduText">
+                            <span asp-validation-for="Edu1_BodyText" class="text-danger"/>
                         </section>
                         <hr>
                         <div class="text-center">
                             <div class="row">
                                     <a href="#" id="addFieldGroup" class="btn btn-success text-white">Add Group</a>
                                 
-                                <button type="submit" class="btn btn-warning text-white">Continue</button>
+                                <button type="submit" value="Education" class="btn btn-warning text-white">Continue</button>
                             </div>
                         </div>
                     </div>
@@ -83,8 +87,9 @@
             var addButton = $("#addFieldGroup");
 
             var n = 1;
-            html = "<br><hr style='color:#1a1a1a;border-width:3px;'><br><label for='schoolName'>Institution:</label><input type='text' class='form-control' id='schoolName" + String(n) + "' placeholder='School Name'></input><br><label for='completionDate" + String(n) + "'>Completion Date:</label><input type='text' class='form-control' id='completionDate" + String(n) + "' placeholder='mm/dd/yy'></input><br><label for='eduText" + String(n) + "'><br>Tell Us More:</label><br>" +
-                "<textarea style='max-width:100%' type='text' class='form-control' id='eduText" + String(n) + "'></textarea>";
+            html = "<br><hr style='color:#1a1a1a;border-width:3px;'><br><label for='Edu" + String(n) + "_Title'>Institution:</label><input type='text' class='form-control' id='Edu" + String(n) + "_SchoolTitle' placeholder='School Name'></input><br><label for='Edu" + String(n) + "_CompletionDate" + String(n) + "'>Completion Date:</label><input type='text' class='form-control' id='Edu" + String(n) + "_CompletionDate' placeholder='mm/dd/yy'></input><br><label for='Edu" + String(n) + "_BodyText'><br>Tell Us More:</label><br>" +
+            "<textarea style='max-width:100%' type='text' class='form-control' id='Edu" + String(n) + "_BodyText'></textarea>";
+
 
             addButton.click(function (e) {
                 e.preventDefault();
