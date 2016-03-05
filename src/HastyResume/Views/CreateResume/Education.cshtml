@@ -1,8 +1,12 @@
+﻿@{ 
+    Layout = "";
+}
+@model HastyResume.Models.ApplicationUser
+@addTagHelper "HastyResume.EduTagHelper,HastyResume"
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,20 +16,20 @@
     <title>Education History - Hasty Resume</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/landing-page.css" rel="stylesheet">
+    <link href="~/css/landing-page.css" rel="stylesheet">
 
     <!-- Animate CSS -->
-    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/animate-css/animate.css">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -35,31 +39,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script type="text/javascript">
-
-    $(document).ready(function() {
-        var maxFields   = 3;
-        var wrapper     = $("#eduFieldWrapper");
-        var addButton   = $("#addFieldGroup");
-
-        var n = 1;
-        html = "<br><hr style='color:#1a1a1a;border-width:3px;'><br><label for='schoolName'>Institution:</label><input type='text' class='form-control' id='schoolName"+String(n)+"' placeholder='School Name'></input><br><label for='completionDate"+String(n)+"'>Completion Date:</label><input type='text' class='form-control' id='completionDate"+String(n)+"' placeholder='mm/dd/yy'></input><br><label for='eduText"+String(n)+"'><br>Tell Us More:</label><br>" +
-            "<textarea style='max-width:100%' type='text' class='form-control' id='eduText"+String(n)+"'></textarea>";
-
-        addButton.click(function(e){
-            //alert("clicked");
-            e.preventDefault();
-            if (n < maxFields) {
-                n++;
-                wrapper.append(html);
-            } 
-            if (n == 3) {
-                $("#theButton").remove();
-            }
-        })
-    })
-
-    </script>
+   
 
 </head>
 
@@ -85,13 +65,9 @@
                         <hr>
                         <div class="text-center">
                             <div class="row">
-                                <button id="theButton" class="btn btn-success">
-                                    <a href="#" id="addFieldGroup" class="text-white">Add Group</a>
-                                </button>
+                                    <a href="#" id="addFieldGroup" class="btn btn-success text-white">Add Group</a>
                                 
-                                <button type="submit" class="btn btn-warning">
-                                    <a href="#" class="text-white">Continue</a>
-                                </button>
+                                <button type="submit" class="btn btn-warning text-white">Continue</button>
                             </div>
                         </div>
                     </div>
@@ -99,5 +75,29 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var maxFields = 3;
+            var wrapper = $("#eduFieldWrapper");
+            var addButton = $("#addFieldGroup");
+
+            var n = 1;
+            html = "<br><hr style='color:#1a1a1a;border-width:3px;'><br><label for='schoolName'>Institution:</label><input type='text' class='form-control' id='schoolName" + String(n) + "' placeholder='School Name'></input><br><label for='completionDate" + String(n) + "'>Completion Date:</label><input type='text' class='form-control' id='completionDate" + String(n) + "' placeholder='mm/dd/yy'></input><br><label for='eduText" + String(n) + "'><br>Tell Us More:</label><br>" +
+                "<textarea style='max-width:100%' type='text' class='form-control' id='eduText" + String(n) + "'></textarea>";
+
+            addButton.click(function (e) {
+                e.preventDefault();
+                if (n < maxFields) {
+                    n++;
+                    wrapper.append(html);
+                }
+                if (n == 3) {
+                    $("#addFieldGroup").remove();
+                }
+            })
+        });
+
+    </script>
 </body>
 </html>
