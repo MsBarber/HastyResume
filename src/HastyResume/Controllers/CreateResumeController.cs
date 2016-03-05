@@ -83,6 +83,7 @@ namespace HastyResume.Controllers
         {
             var user = await GetCurrentUserAsync();
             user = UpdatePersonal(user, newinfo);
+            await _userManager.UpdateAsync(user);
             return View("Social");
         }
 
@@ -97,6 +98,7 @@ namespace HastyResume.Controllers
         {
             var user = await GetCurrentUserAsync();
             user = UpdateSocial(user, newinfo);
+            await _userManager.UpdateAsync(user);
             return View("Education");
         }
 
@@ -110,6 +112,7 @@ namespace HastyResume.Controllers
         {
             var user = await GetCurrentUserAsync();
             user = UpdateEducation(user, newinfo);
+            await _userManager.UpdateAsync(user);
             return View("Work");
         }
 
@@ -124,6 +127,7 @@ namespace HastyResume.Controllers
         {
             var user = await GetCurrentUserAsync();
             user = UpdateWork(user, newinfo);
+            await _userManager.UpdateAsync(user);
             return View("Skills");
         }
 
@@ -137,6 +141,7 @@ namespace HastyResume.Controllers
         {
             var user = await GetCurrentUserAsync();
             user = UpdateSkills(user, newinfo);
+            await _userManager.UpdateAsync(user);
             return RedirectToAction("Index","Account");
         }
 
@@ -145,6 +150,7 @@ namespace HastyResume.Controllers
         {
             var user = await GetCurrentUserAsync();
             user.SecretLink = GenSecretLink(user);
+            await _userManager.UpdateAsync(user);
             return View("Index");
         }
 
@@ -158,6 +164,7 @@ namespace HastyResume.Controllers
             finaluser.FirstName = newinfo.FirstName;
             finaluser.LastName = newinfo.LastName;
             finaluser.ContactEmail = newinfo.ContactEmail;
+            finaluser.CareerField = newinfo.CareerField;
 
             return finaluser;
 
