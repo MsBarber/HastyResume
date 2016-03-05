@@ -1,0 +1,425 @@
+@model HastyResume.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>ApplicationUser</h4>
+        <hr />
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+      
+        <div class="form-group">
+            <label asp-for="ContactEmail" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ContactEmail" class="form-control" />
+                <span asp-validation-for="ContactEmail" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Edu1_BodyText" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Edu1_BodyText" class="form-control" />
+                <span asp-validation-for="Edu1_BodyText" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Edu1_CompletionDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Edu1_CompletionDate" class="form-control" />
+                <span asp-validation-for="Edu1_CompletionDate" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Edu1_SchoolName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Edu1_SchoolName" class="form-control" />
+                <span asp-validation-for="Edu1_SchoolName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Edu1_Title" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Edu1_Title" class="form-control" />
+                <span asp-validation-for="Edu1_Title" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Edu2_BodyText" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Edu2_BodyText" class="form-control" />
+                <span asp-validation-for="Edu2_BodyText" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Edu2_CompletionDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Edu2_CompletionDate" class="form-control" />
+                <span asp-validation-for="Edu2_CompletionDate" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Edu2_SchoolName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Edu2_SchoolName" class="form-control" />
+                <span asp-validation-for="Edu2_SchoolName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Edu2_Title" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Edu2_Title" class="form-control" />
+                <span asp-validation-for="Edu2_Title" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Edu3_BodyText" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Edu3_BodyText" class="form-control" />
+                <span asp-validation-for="Edu3_BodyText" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Edu3_CompletionDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Edu3_CompletionDate" class="form-control" />
+                <span asp-validation-for="Edu3_CompletionDate" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Edu3_SchoolName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Edu3_SchoolName" class="form-control" />
+                <span asp-validation-for="Edu3_SchoolName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Edu3_Title" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Edu3_Title" class="form-control" />
+                <span asp-validation-for="Edu3_Title" class="text-danger" />
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label asp-for="FacebookLink" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FacebookLink" class="form-control" />
+                <span asp-validation-for="FacebookLink" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="FirstName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="GithubLink" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="GithubLink" class="form-control" />
+                <span asp-validation-for="GithubLink" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LinkedInLink" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LinkedInLink" class="form-control" />
+                <span asp-validation-for="LinkedInLink" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PhoneNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SecretLink" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SecretLink" class="form-control" />
+                <span asp-validation-for="SecretLink" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill1_ChildSkillOneName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill1_ChildSkillOneName" class="form-control" />
+                <span asp-validation-for="Skill1_ChildSkillOneName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill1_ChildSkillOnePercent" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill1_ChildSkillOnePercent" class="form-control" />
+                <span asp-validation-for="Skill1_ChildSkillOnePercent" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill1_ChildSkillThreeName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill1_ChildSkillThreeName" class="form-control" />
+                <span asp-validation-for="Skill1_ChildSkillThreeName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill1_ChildSkillThreePercent" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill1_ChildSkillThreePercent" class="form-control" />
+                <span asp-validation-for="Skill1_ChildSkillThreePercent" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill1_ChildSkillTwoName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill1_ChildSkillTwoName" class="form-control" />
+                <span asp-validation-for="Skill1_ChildSkillTwoName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill1_ChildSkillTwoPercent" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill1_ChildSkillTwoPercent" class="form-control" />
+                <span asp-validation-for="Skill1_ChildSkillTwoPercent" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill1_ParentSkill" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill1_ParentSkill" class="form-control" />
+                <span asp-validation-for="Skill1_ParentSkill" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill2_ChildSkillOneName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill2_ChildSkillOneName" class="form-control" />
+                <span asp-validation-for="Skill2_ChildSkillOneName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill2_ChildSkillOnePercent" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill2_ChildSkillOnePercent" class="form-control" />
+                <span asp-validation-for="Skill2_ChildSkillOnePercent" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill2_ChildSkillThreeName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill2_ChildSkillThreeName" class="form-control" />
+                <span asp-validation-for="Skill2_ChildSkillThreeName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill2_ChildSkillThreePercent" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill2_ChildSkillThreePercent" class="form-control" />
+                <span asp-validation-for="Skill2_ChildSkillThreePercent" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill2_ChildSkillTwoName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill2_ChildSkillTwoName" class="form-control" />
+                <span asp-validation-for="Skill2_ChildSkillTwoName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill2_ChildSkillTwoPercent" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill2_ChildSkillTwoPercent" class="form-control" />
+                <span asp-validation-for="Skill2_ChildSkillTwoPercent" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill2_ParentSkill" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill2_ParentSkill" class="form-control" />
+                <span asp-validation-for="Skill2_ParentSkill" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill3_ChildSkillOneName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill3_ChildSkillOneName" class="form-control" />
+                <span asp-validation-for="Skill3_ChildSkillOneName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill3_ChildSkillOnePercent" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill3_ChildSkillOnePercent" class="form-control" />
+                <span asp-validation-for="Skill3_ChildSkillOnePercent" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill3_ChildSkillThreeName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill3_ChildSkillThreeName" class="form-control" />
+                <span asp-validation-for="Skill3_ChildSkillThreeName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill3_ChildSkillThreePercent" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill3_ChildSkillThreePercent" class="form-control" />
+                <span asp-validation-for="Skill3_ChildSkillThreePercent" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill3_ChildSkillTwoName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill3_ChildSkillTwoName" class="form-control" />
+                <span asp-validation-for="Skill3_ChildSkillTwoName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill3_ChildSkillTwoPercent" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill3_ChildSkillTwoPercent" class="form-control" />
+                <span asp-validation-for="Skill3_ChildSkillTwoPercent" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Skill3_ParentSkill" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Skill3_ParentSkill" class="form-control" />
+                <span asp-validation-for="Skill3_ParentSkill" class="text-danger" />
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <label asp-for="Wrk1_BodyText" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk1_BodyText" class="form-control" />
+                <span asp-validation-for="Wrk1_BodyText" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wrk1_CompanyName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk1_CompanyName" class="form-control" />
+                <span asp-validation-for="Wrk1_CompanyName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wrk1_CompanyPosition" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk1_CompanyPosition" class="form-control" />
+                <span asp-validation-for="Wrk1_CompanyPosition" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wrk1_EndDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk1_EndDate" class="form-control" />
+                <span asp-validation-for="Wrk1_EndDate" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wrk1_StartDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk1_StartDate" class="form-control" />
+                <span asp-validation-for="Wrk1_StartDate" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wrk2_BodyText" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk2_BodyText" class="form-control" />
+                <span asp-validation-for="Wrk2_BodyText" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wrk2_CompanyName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk2_CompanyName" class="form-control" />
+                <span asp-validation-for="Wrk2_CompanyName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wrk2_CompanyPosition" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk2_CompanyPosition" class="form-control" />
+                <span asp-validation-for="Wrk2_CompanyPosition" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wrk2_EndDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk2_EndDate" class="form-control" />
+                <span asp-validation-for="Wrk2_EndDate" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wrk2_StartDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk2_StartDate" class="form-control" />
+                <span asp-validation-for="Wrk2_StartDate" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wrk3_BodyText" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk3_BodyText" class="form-control" />
+                <span asp-validation-for="Wrk3_BodyText" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wrk3_CompanyName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk3_CompanyName" class="form-control" />
+                <span asp-validation-for="Wrk3_CompanyName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wrk3_CompanyPosition" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk3_CompanyPosition" class="form-control" />
+                <span asp-validation-for="Wrk3_CompanyPosition" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wrk3_EndDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk3_EndDate" class="form-control" />
+                <span asp-validation-for="Wrk3_EndDate" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Wrk3_StartDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Wrk3_StartDate" class="form-control" />
+                <span asp-validation-for="Wrk3_StartDate" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -1,0 +1,434 @@
+@model HastyResume.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccessFailedCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConcurrencyStamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edu1_BodyText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edu1_CompletionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edu1_SchoolName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edu1_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edu2_BodyText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edu2_CompletionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edu2_SchoolName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edu2_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edu3_BodyText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edu3_CompletionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edu3_SchoolName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edu3_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailConfirmed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FacebookLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GithubLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LinkedInLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LockoutEnabled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LockoutEnd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NormalizedEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NormalizedUserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PasswordHash)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecretLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecurityStamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill1_ChildSkillTwoPercent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill1_ChildSkillOneName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill1_ChildSkillOnePercent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill1_ChildSkillThreeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill1_ChildSkillThreePercent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill1_ChildSkillTwoName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill1_ParentSkill)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill2_ChildSkillTwoPercent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill2_ChildSkillOneName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill2_ChildSkillOnePercent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill2_ChildSkillThreeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill2_ChildSkillThreePercent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill2_ChildSkillTwoName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill2_ParentSkill)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill3_ChildSkillTwoPercent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill3_ChildSkillOneName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill3_ChildSkillOnePercent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill3_ChildSkillThreeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill3_ChildSkillThreePercent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill3_ChildSkillTwoName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skill3_ParentSkill)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TwoFactorEnabled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk1_BodyText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk1_CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk1_CompanyPosition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk1_EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk1_StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk2_BodyText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk2_CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk2_CompanyPosition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk2_EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk2_StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk3_BodyText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk3_CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk3_CompanyPosition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk3_EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wrk3_StartDate)
+        </th>
+        <th></th>
+    </tr>
+    
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.AccessFailedCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.ConcurrencyStamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Edu1_BodyText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Edu1_CompletionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Edu1_SchoolName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Edu1_Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Edu2_BodyText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Edu2_CompletionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Edu2_SchoolName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Edu2_Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Edu3_BodyText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Edu3_CompletionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Edu3_SchoolName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Edu3_Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.EmailConfirmed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.FacebookLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.GithubLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.LinkedInLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.LockoutEnabled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.LockoutEnd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.NormalizedEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.NormalizedUserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.PasswordHash)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.PhoneNumberConfirmed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.SecretLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.SecurityStamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill1_ChildSkillTwoPercent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill1_ChildSkillOneName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill1_ChildSkillOnePercent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill1_ChildSkillThreeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill1_ChildSkillThreePercent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill1_ChildSkillTwoName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill1_ParentSkill)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill2_ChildSkillTwoPercent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill2_ChildSkillOneName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill2_ChildSkillOnePercent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill2_ChildSkillThreeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill2_ChildSkillThreePercent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill2_ChildSkillTwoName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill2_ParentSkill)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill3_ChildSkillTwoPercent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill3_ChildSkillOneName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill3_ChildSkillOnePercent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill3_ChildSkillThreeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill3_ChildSkillThreePercent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill3_ChildSkillTwoName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Skill3_ParentSkill)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.TwoFactorEnabled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk1_BodyText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk1_CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk1_CompanyPosition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk1_EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk1_StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk2_BodyText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk2_CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk2_CompanyPosition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk2_EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk2_StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk3_BodyText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk3_CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk3_CompanyPosition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk3_EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem =>modelItem.Wrk3_StartDate)
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+            <a asp-action="Details" asp-route-id="@Model.Id">Details</a> |
+            <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+        </td>
+    </tr>
+
+</table>
