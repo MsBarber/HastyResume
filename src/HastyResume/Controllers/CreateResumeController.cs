@@ -232,33 +232,32 @@ namespace HastyResume.Controllers
         {
 
             finaluser.Skill1_ParentSkill = newinfo.Skill1_ParentSkill;
-            finaluser.Skill1_ChildSkillOneName = newinfo.Skill1_ChildSkillOneName;
-            finaluser.Skill1_ChildSkillOnePercent = newinfo.Skill1_ChildSkillOnePercent;
-            finaluser.Skill1_ChildSkillTwoName = newinfo.Skill1_ChildSkillTwoName;
-            finaluser.Skill1_ChildSkillTwoPercent = newinfo.Skill1_ChildSkillTwoPercent;
-            finaluser.Skill1_ChildSkillThreeName = newinfo.Skill1_ChildSkillThreeName;
-            finaluser.Skill1_ChildSkillThreePercent = newinfo.Skill1_ChildSkillThreePercent;
+            finaluser.Skill1_ChildSkill1Name = newinfo.Skill1_ChildSkill1Name;
+            finaluser.Skill1_ChildSkill1Percent = newinfo.Skill1_ChildSkill1Percent;
+            finaluser.Skill1_ChildSkill2Name = newinfo.Skill1_ChildSkill2Name;
+            finaluser.Skill1_ChildSkill2Percent = newinfo.Skill1_ChildSkill2Percent;
+            finaluser.Skill1_ChildSkill3Name = newinfo.Skill1_ChildSkill3Name;
+            finaluser.Skill1_ChildSkill3Percent = newinfo.Skill1_ChildSkill3Percent;
 
             finaluser.Skill2_ParentSkill = newinfo.Skill2_ParentSkill;
-            finaluser.Skill2_ChildSkillOneName = newinfo.Skill2_ChildSkillOneName;
-            finaluser.Skill2_ChildSkillOnePercent = newinfo.Skill2_ChildSkillOnePercent;
-            finaluser.Skill2_ChildSkillTwoName = newinfo.Skill2_ChildSkillTwoName;
-            finaluser.Skill2_ChildSkillTwoPercent = newinfo.Skill2_ChildSkillTwoPercent;
-            finaluser.Skill2_ChildSkillThreeName = newinfo.Skill2_ChildSkillThreeName;
-            finaluser.Skill2_ChildSkillThreePercent = newinfo.Skill2_ChildSkillThreePercent;
+            finaluser.Skill2_ChildSkill1Name = newinfo.Skill2_ChildSkill1Name;
+            finaluser.Skill2_ChildSkill1Percent = newinfo.Skill2_ChildSkill1Percent;
+            finaluser.Skill2_ChildSkill2Name = newinfo.Skill2_ChildSkill2Name;
+            finaluser.Skill2_ChildSkill2Percent = newinfo.Skill2_ChildSkill2Percent;
+            finaluser.Skill2_ChildSkill3Name = newinfo.Skill2_ChildSkill3Name;
+            finaluser.Skill2_ChildSkill3Percent = newinfo.Skill2_ChildSkill3Percent;
 
             finaluser.Skill3_ParentSkill = newinfo.Skill3_ParentSkill;
-            finaluser.Skill3_ChildSkillOneName = newinfo.Skill3_ChildSkillOneName;
-            finaluser.Skill3_ChildSkillOnePercent = newinfo.Skill3_ChildSkillOnePercent;
-            finaluser.Skill3_ChildSkillTwoName = newinfo.Skill3_ChildSkillTwoName;
-            finaluser.Skill3_ChildSkillTwoPercent = newinfo.Skill3_ChildSkillTwoPercent;
-            finaluser.Skill3_ChildSkillThreeName = newinfo.Skill3_ChildSkillThreeName;
-            finaluser.Skill3_ChildSkillThreePercent = newinfo.Skill3_ChildSkillThreePercent;
+            finaluser.Skill3_ChildSkill1Name = newinfo.Skill3_ChildSkill1Name;
+            finaluser.Skill3_ChildSkill1Percent = newinfo.Skill3_ChildSkill1Percent;
+            finaluser.Skill3_ChildSkill2Name = newinfo.Skill3_ChildSkill2Name;
+            finaluser.Skill3_ChildSkill2Percent = newinfo.Skill3_ChildSkill2Percent;
+            finaluser.Skill3_ChildSkill3Name = newinfo.Skill3_ChildSkill3Name;
+            finaluser.Skill3_ChildSkill3Percent = newinfo.Skill3_ChildSkill3Percent;
 
             return finaluser;
 
         }
-
 
 
         private string GenSecretLink(ApplicationUser user)
