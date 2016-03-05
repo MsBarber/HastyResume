@@ -36,7 +36,7 @@ h6 {
     text-align: center;
     color: #f8f8f8;
     /*background: url(../img/intro-bg.jpg) no-repeat center center;*/
-    background: url(../img/busy-desk.jpg) no-repeat center center;
+    background: url(../../images/busy-desk.jpg) no-repeat center center;
     background-color: rgba(0,0,0,0.25);
     background-size: cover;
 }
@@ -119,7 +119,7 @@ h6 {
 .banner {
     padding: 100px 0;
     color: #f8f8f8;
-    background: url(../img/banner-bg.jpg) no-repeat center center;
+    background: url(~/images/banner-bg.jpg) no-repeat center center;
     background-size: cover;
 }
 
@@ -183,15 +183,15 @@ p.steps-text {
 
 body#step-one {
    /*background-color: #f3f3f3!important;*/  
-   background: url(../img/pattern-1.png) repeat center center; 
+   background: url(~/images/pattern-1.png) repeat center center; 
 }
 
 body#step-two {
-    background: url(../img/pattern-2.png) repeat center center;
+    background: url(~/images/pattern-2.png) repeat center center;
 }
 
 body#step-three {
-    background: url(../img/pattern-3.png) repeat center center;
+    background: url(~/images/pattern-3.png) repeat center center;
 } 
 
 .form-basic {
