@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Work History - Hasty Resume</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+        var maxFields   = 3;
+        var wrapper     = $("#eduFieldWrapper");
+        var addButton   = $("#addFieldGroup");
+
+        var n = 1;
+
+        function out(n) {
+            html = "<br><hr style='color:#1a1a1a;border-width:3px;'><br><label for='companyName'>Institution:</label><input type='text' class='form-control' id='companyName"+String(n)+"' placeholder='Company Name'></input><br><label for='startDate"+String(n)+"'>Start Date:</label><input type='text' class='form-control' id='startDate"+String(n)+"' placeholder='mm/dd/yy'></input><br><label for='endDate"+String(n)+"'>End Date:</label><input type='text' class='form-control' id='endDate"+String(n)+"' placeholder='mm/dd/yy'></input><br><label for='workText"+String(n)+"'><br>Tell Us More:</label><br><textarea style='max-width:100%' type='text' class='form-control' id='workText"+String(n)+"'></textarea>";
+            return html;
+        }
+
+        addButton.click(function(e){
+            //alert("clicked");
+            e.preventDefault();
+            if (n < maxFields) {
+                wrapper.append(out(n));
+                n++;
+            } 
+            if (n == 3) {
+                $("#theButton").remove();
+            }
+        })
+    })
+
+    </script>
+
+</head>
+
+<body id="step-two">
+    <div class="container">
+        <div class="row">
+            <span class="col-lg-3 col-md-3"></span>
+            <div class="col-lg-6 col-md-6 form-basic animated slideInLeft">
+                <h1 class="text-center">Work History</h1>
+                <hr style="border-width:3px;border-color:orange;">
+                <form>
+                    <div class="form-group">
+                        <section id="eduFieldWrapper">
+                            <label for="companyName1">Company:</label>
+                            <input type="text" class="form-control" id="companyName1" placeholder="Company Name"></input>
+                            <br>
+                            <label for="startDate1">Start Date:</label>
+                            <input type="text" class="form-control" id="startDate1" placeholder="mm/dd/yy"></input>
+                            <br>
+                            <label for="endDate1">End Date:</label>
+                            <input type="text" class="form-control" id="endDate1" placeholder="mm/dd/yy"></input>
+                            <br>
+                            <label for="companyText1">Tell Us More:</label>
+                            <textarea style="max-width:100%" type="text" class="form-control" id="eduText"></textarea>
+                        </section>
+                        <hr>
+                        <div class="text-center">
+                            <div class="row">
+                                <button id="theButton" class="btn btn-success">
+                                    <a href="#" id="addFieldGroup" class="text-white link-clean">Add Group</a>
+                                </button>
+                                
+                                <button type="submit" class="btn btn-warning">
+                                    <a href="#" class="text-white">Continue</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
