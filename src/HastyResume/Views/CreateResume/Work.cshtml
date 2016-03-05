@@ -1,5 +1,8 @@
-﻿@model HastyResume.Models.ApplicationUser
+﻿@model HastyResume.ViewModels.Resume.WorkViewModel
 
+@{
+    Layout = "_LayoutNoNav";
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,6 +32,9 @@
     <!-- jQuery -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" type="text/javascript"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,8 +42,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-  
 
 </head>
 
@@ -52,20 +56,35 @@
                     <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <section id="eduFieldWrapper">
-                            <label asp-for="Wrk1_CompanyName">Company: </label>
-                            <input asp-for="Wrk1_CompanyName" class="form-control" id="Wrk1_CompanyName" placeholder="Company Name">
+                            <div class="form-group">
+                                <label asp-for="Wrk1_CompanyName">Company: </label>
+                                <input asp-for="Wrk1_CompanyName" class="form-control" id="Wrk1_CompanyName" placeholder="Company Name">
+                                <span asp-validation-for="Wrk1_CompanyName" class="text-danger" />
+                            </div>
                             <br>
-                            <label for="Wrk1_CompanyPosition">Job Position:</label>
-                            <input asp-for="Wrk1_CompanyPosition" class="form-control" id="Wrk1_CompanyPosition" placeholder="(Ex: Manager)">
+                            <div class="form-group">
+                                <label asp-for="Wrk1_CompanyPosition">Job Position:</label>
+                                <input asp-for="Wrk1_CompanyPosition" class="form-control" id="Wrk1_CompanyPosition" placeholder="(Ex: Manager)">
+                                <span asp-validation-for="Wrk1_CompanyPosition" class="text-danger" />
+                            </div>
                             <br>
-                            <label asp-for="Wrk1_StartDate">Start Date:</label>
-                            <input asp-for="Wrk1_StartDate" class="form-control" id="Wrk1_StartDate" placeholder="MM/DD/YYYY">
+                            <div class="form-group">
+                                <label asp-for="Wrk1_StartDate">Start Date:</label>
+                                <input asp-for="Wrk1_StartDate" class="form-control" id="Wrk1_StartDate" placeholder="MM/DD/YYYY">
+                                <span asp-validation-for="Wrk1_StartDate" class="text-danger" />
+                            </div>
                             <br>
-                            <label asp-for="Wrk1_EndDate">End Date:</label>
-                            <input asp-for="Wrk1_EndDate" class="form-control" id="Wrk1_EndDate" placeholder="MM/DD/YYYY">
+                            <div class="form-group">
+                                <label asp-for="Wrk1_EndDate">End Date:</label>
+                                <input asp-for="Wrk1_EndDate" class="form-control" id="Wrk1_EndDate" placeholder="MM/DD/YYYY">
+                                <span asp-validation-for="Wrk1_EndDate" class="text-danger" />
+                            </div>
                             <br>
-                            <label asp-for="Wrk1_BodyText">Tell Us More:</label>
-                            <input asp-for="Wrk1_BodyText" textarea style="max-width:100%" type="text" class="form-control" id="Wrk1_BodyText">
+                            <div class="form-group">
+                                <label asp-for="Wrk1_BodyText">Tell Us More:</label>
+                                <textarea asp-for="Wrk1_BodyText" textarea style="max-width:100%" type="text" class="form-control" id="Wrk1_BodyText"></textarea>
+                                <span asp-validation-for="Wrk1_BodyText" class="text-danger" />
+                            </div>
                         </section>
                         <hr>
                         <div class="text-center">
@@ -91,8 +110,7 @@
         var n = 1;
 
         function out(n) {
-            html = "<br><hr style='color:#1a1a1a;border-width:3px;'><br><label for='Wrk" + String(n) + "_CompanyName'>CompanyName:</label><input type='text' class='form-control' id='Wrk" + String(n) + "_CompanyName" + String(n) + "' placeholder='Company Name'></input><br><label for='Wrk" + String(n) + "_CompanyPosition'>Start Date:</label><input type='text' class='form-control' id='Wrk" + String(n) + "_CompanyPosition' placeholder='(Ex: Manager)'></input><br><label for='Wrk" + String(n) + "_StartDate'>Start Date:</label><input type='text' class='form-control' id='Wrk" + String(n) + "_StartDate' placeholder='mm/dd/yy'></input><br><label for='Wrk" + String(n) + "_EndDate'><br>Tell Us More:</label><br><input style='max-width:100%' type='text' class='form-control' id='Wrk" + String(n) + "_EndDate'></input><br><label for='Wrk" + String(n) + "_BodyText'></label><input style='max-width:100%' type ='text' class='form-control' id='Wrk" + String(n) + "_BodyText'></input>;"
-
+            html = "<br><hr style='color:#1a1a1a;border-width:3px;'><br><label asp-for='Wrk" + String(n) + "_CompanyName'>CompanyName:</label><input asp-for='Wrk " + String(n) + "_CompanyName' class='form-control' id='Wrk" + String(n) + "_CompanyName" + String(n) + "' placeholder='Company Name'></input><br><label for='Wrk" + String(n) + "_CompanyPosition'>Positon</label><input type='text' class='form-control' id='Wrk" + String(n) + "_CompanyPosition' placeholder='(Ex: Manager)'></input><br>     <label for='Wrk" + String(n) + "_StartDate'>Start Date:</label>     <input type='text' class='form-control' id='Wrk" + String(n) + "_StartDate' placeholder='mm/dd/yy'></input> <br> <label for='Wrk" + String(n) + "_EndDate'>End Date:</label>     <input type='text' class='form-control' id='Wrk" + String(n) + "_EndDate' placeholder='mm/dd/yy'></input>          <br><label for='Wrk" + String(n) + "_BodyText'><br>Tell Us More:</label>   <br><textarea style='max-width:100%' type ='text' class='form-control' id='Wrk" + String(n) + "_BodyText'></textarea>"
             return html;
         }
 
@@ -100,8 +118,8 @@
             //alert("clicked");
             e.preventDefault();
             if (n < maxFields) {
-                wrapper.append(out(n));
                 n++;
+                wrapper.append(out(n));
             }
             if (n == 3) {
                 $("#addFieldGroup").remove();

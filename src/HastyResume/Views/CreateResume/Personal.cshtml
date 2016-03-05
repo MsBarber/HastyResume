@@ -1,4 +1,4 @@
-﻿ @model HastyResume.Models.ApplicationUser
+﻿@model HastyResume.ViewModels.Resume.PersonalViewModel
 
 @{
     Layout = "_LayoutNoNav";
@@ -31,11 +31,16 @@
     <!-- Animate CSS -->
     <link rel="stylesheet" type="text/css" href="~/lib/animate-css/animate.min.css">
 
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+       
     <![endif]-->
 
 </head>
@@ -48,35 +53,35 @@
                 <h1 class="text-center">Howdy, who are you?</h1>
                 <hr style="border-width:3px;border-color:orange;">
                 <form asp-action="Personal">
-                    <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>    
+                    <div asp-validation-summary="ValidationSummary.All" class="text-danger"></div>    
                     <div class="form-group">
                         <label asp-for="FirstName">First Name:</label>
-                        <input asp-for="FirstName" class="form-control" id="firstName" placeholder="First Name">
+                        <input asp-for="FirstName" class="form-control" id="firstName" placeholder="First Name" />
                         <span asp-validation-for="FirstName" class="text-danger" />
                     </div>
                     <hr>
                     <div class="form-group">
                         <label asp-for="LastName">Last Name:</label>
-                        <input asp-for="LastName" class="form-control" id="lastName" placeholder="Last Name">
+                        <input asp-for="LastName" class="form-control" id="lastName" placeholder="Last Name" />
                         <span asp-validation-for="LastName" class="text-danger" />
                     </div>
                     <hr>
                     <div class="form-group">
                         <label asp-for="ContactEmail">Contact Email:</label>
-                        <input asp-for="ContactEmail" class="form-control" id="emailAddress" placeholder="Email">
+                        <input asp-for="ContactEmail" class="form-control" id="emailAddress" placeholder="Email" />
                         <span asp-validation-for="ContactEmail" class="text-danger"/>
                     </div>
                     <hr>
                     <div class="form-group">
                         <label asp-for="CareerField">Career Field:</label>
-                        <input asp-for="CareerField" class="form-control" id="CareerField" placeholder="Expertise">
+                        <input asp-for="CareerField" class="form-control" id="CareerField" placeholder="Expertise" />
                         <span asp-validation-for="CareerField" class="text-danger"/>
                     </div>
                     <br />
                     <div class="text-center">
                         <div class="form-group">
                             <div class="col-lg-12 col-md-12">
-                                <input type="submit" value="Personal" name="Next" class="btn btn-warning" />
+                                <button type="submit" value="Personal" class="btn btn-warning text-white">Continue</button>
                             </div>
                         </div>
                     </div>

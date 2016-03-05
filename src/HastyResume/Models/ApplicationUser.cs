@@ -11,9 +11,9 @@ namespace HastyResume.Models
     public class ApplicationUser : IdentityUser
     {
 
+        public bool ResumeCreated { get; set; }
 
         public string CareerField { get; set; }
-        public bool ResumeCreated { get; set; }
         [Required(ErrorMessage = "Everyone has a first name!")]
         public string FirstName { get; set; }
         [Required(ErrorMessage = "Everyone has a first name!")]
@@ -22,6 +22,7 @@ namespace HastyResume.Models
         public string LinkedInLink { get; set; }
         public string FacebookLink { get; set; }
 
+        [Required(ErrorMessage ="Please enter an email for employers to contact you.")]
         [EmailAddress]
         public string ContactEmail { get; set; }
 
@@ -30,21 +31,21 @@ namespace HastyResume.Models
         
         public string Edu1_Title { get; set; }
         public string Edu1_SchoolName {get;set;}
-        [DataType(DataType.Date, ErrorMessage = "Please use mm/dd/yyyy format")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Edu1_CompletionDate { get; set; }
         [StringLength(maximumLength:256)]
         public string Edu1_BodyText { get; set; }
 
         public string Edu2_Title { get; set; }
         public string Edu2_SchoolName { get; set; }
-        [DataType(DataType.Date, ErrorMessage = "Please use mm/dd/yyyy format")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Edu2_CompletionDate { get; set; }
         [StringLength(maximumLength: 256)]
         public string Edu2_BodyText { get; set; }
 
         public string Edu3_Title { get; set; }
         public string Edu3_SchoolName { get; set; }
-        [DataType(DataType.Date, ErrorMessage = "Please use mm/dd/yyyy format")]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Edu3_CompletionDate { get; set; }
         [StringLength(maximumLength: 256)]
         public string Edu3_BodyText { get; set; }
@@ -53,25 +54,25 @@ namespace HastyResume.Models
         public string Wrk1_CompanyPosition { get; set; }
         [DataType(DataType.Date,ErrorMessage ="Please use mm/dd/yyyy format")]
         public DateTime Wrk1_StartDate { get; set; }
-        [DataType(DataType.Date, ErrorMessage = "Please use mm/dd/yyyy format")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Wrk1_EndDate { get; set; }
         [StringLength(maximumLength: 256)]
         public string Wrk1_BodyText { get; set; }
 
         public string Wrk2_CompanyName { get; set; }
         public string Wrk2_CompanyPosition { get; set; }
-        [DataType(DataType.Date, ErrorMessage = "Please use mm/dd/yyyy format")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Wrk2_StartDate { get; set; }
-        [DataType(DataType.Date, ErrorMessage = "Please use mm/dd/yyyy format")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Wrk2_EndDate { get; set; }
         [StringLength(maximumLength: 256)]
         public string Wrk2_BodyText { get; set; }
 
         public string Wrk3_CompanyName { get; set; }
         public string Wrk3_CompanyPosition { get; set; }
-        [DataType(DataType.Date, ErrorMessage = "Please use mm/dd/yyyy format")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Wrk3_StartDate { get; set; }
-        [DataType(DataType.Date, ErrorMessage = "Please use mm/dd/yyyy format")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Wrk3_EndDate { get; set; }
         [StringLength(maximumLength: 256)]
         public string Wrk3_BodyText { get; set; }

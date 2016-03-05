@@ -1,4 +1,5 @@
 ﻿using HastyResume.Models;
+using HastyResume.ViewModels.Resume;
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Mvc;
@@ -35,24 +36,24 @@ namespace HastyResume.Controllers
             return View(user);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ApplicationUser newinfo)
-        {
-            var user = await GetCurrentUserAsync();
-            user = UpdatePersonal(user,newinfo);
-            await _userManager.UpdateAsync(user);
-            user = UpdateEducation(user,newinfo);
-            user = UpdateSkills(user, newinfo);
-            await _userManager.UpdateAsync(user);
-            user = UpdateSocial(user, newinfo);
-            await _userManager.UpdateAsync(user);
-            user = UpdateWork(user, newinfo);
-            await _userManager.UpdateAsync(user);
-            user.ResumeCreated = true;
-            await _userManager.UpdateAsync(user);
-            return RedirectToAction("Index","Account");
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create(ApplicationUser newinfo)
+        //{
+        //    var user = await GetCurrentUserAsync();
+        //    user = UpdatePersonal(user,newinfo);
+        //    await _userManager.UpdateAsync(user);
+        //    user = UpdateEducation(user,newinfo);
+        //    user = UpdateSkills(user, newinfo);
+        //    await _userManager.UpdateAsync(user);
+        //    user = UpdateSocial(user, newinfo);
+        //    await _userManager.UpdateAsync(user);
+        //    user = UpdateWork(user, newinfo);
+        //    await _userManager.UpdateAsync(user);
+        //    user.ResumeCreated = true;
+        //    await _userManager.UpdateAsync(user);
+        //    return RedirectToAction("Index","Account");
+        //}
 
 
 
@@ -79,12 +80,16 @@ namespace HastyResume.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Personal(ApplicationUser newinfo)
+        public async Task<IActionResult> Personal(PersonalViewModel pvm )
         {
             var user = await GetCurrentUserAsync();
-            user = UpdatePersonal(user, newinfo);
-            await _userManager.UpdateAsync(user);
-            return View("Social");
+            if (ModelState.IsValid)
+            {
+                user = UpdatePersonal(user, pvm);
+                await _userManager.UpdateAsync(user);
+                return RedirectToAction("Social");
+            }
+            return View(pvm);
         }
 
 
@@ -94,12 +99,16 @@ namespace HastyResume.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Social(ApplicationUser newinfo)
+        public async Task<IActionResult> Social(SocialViewModel svm)
         {
             var user = await GetCurrentUserAsync();
-            user = UpdateSocial(user, newinfo);
-            await _userManager.UpdateAsync(user);
-            return View("Education");
+            if (ModelState.IsValid)
+            {
+                user = UpdateSocial(user, svm);
+               // await _userManager.UpdateAsync(user);
+                return RedirectToAction("Education");
+            }
+            return View(svm);
         }
 
         public IActionResult Education()
@@ -108,12 +117,16 @@ namespace HastyResume.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Education(ApplicationUser newinfo)
+        public async Task<IActionResult> Education(EducationViewModel evm)
         {
             var user = await GetCurrentUserAsync();
-            user = UpdateEducation(user, newinfo);
-            await _userManager.UpdateAsync(user);
-            return View("Work");
+            if (ModelState.IsValid)
+            {
+                user = UpdateEducation(user, evm);
+               // await _userManager.UpdateAsync(user);
+                return RedirectToAction("Work");
+            }
+            return View(evm);
         }
 
 
@@ -123,12 +136,16 @@ namespace HastyResume.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Work(ApplicationUser newinfo)
+        public async Task<IActionResult> Work(WorkViewModel wvm)
         {
             var user = await GetCurrentUserAsync();
-            user = UpdateWork(user, newinfo);
-            await _userManager.UpdateAsync(user);
-            return View("Skills");
+            if (ModelState.IsValid)
+            {
+                user = UpdateWork(user, wvm);
+              //  await _userManager.UpdateAsync(user);
+                return RedirectToAction("Skills");
+            }
+            return View(wvm);
         }
 
         public IActionResult Skills()
@@ -137,12 +154,16 @@ namespace HastyResume.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Skills(ApplicationUser newinfo)
+        public async Task<IActionResult> Skills(SkillsViewModel svm)
         {
             var user = await GetCurrentUserAsync();
-            user = UpdateSkills(user, newinfo);
-            await _userManager.UpdateAsync(user);
-            return RedirectToAction("Index","Account");
+            if (ModelState.IsValid)
+            {
+                user = UpdateSkills(user, svm);
+                await _userManager.UpdateAsync(user);
+                return RedirectToAction("Index","Account");
+            }
+            return View(svm);
         }
 
         [HttpPost]
@@ -158,102 +179,102 @@ namespace HastyResume.Controllers
 
 
 
-        private ApplicationUser UpdatePersonal(ApplicationUser finaluser, ApplicationUser newinfo)
+        private ApplicationUser UpdatePersonal(ApplicationUser finaluser, PersonalViewModel pvm)
         {
 
-            finaluser.FirstName = newinfo.FirstName;
-            finaluser.LastName = newinfo.LastName;
-            finaluser.ContactEmail = newinfo.ContactEmail;
-            finaluser.CareerField = newinfo.CareerField;
+            finaluser.FirstName = pvm.FirstName;
+            finaluser.LastName = pvm.LastName;
+            finaluser.ContactEmail = pvm.ContactEmail;
+            finaluser.CareerField = pvm.CareerField;
 
             return finaluser;
 
         }
 
-        private ApplicationUser UpdateSocial(ApplicationUser finaluser, ApplicationUser newinfo)
+        private ApplicationUser UpdateSocial(ApplicationUser finaluser, SocialViewModel svm)
         {
-            finaluser.GithubLink = newinfo.GithubLink;
-            finaluser.FacebookLink = newinfo.FacebookLink;
-            finaluser.LinkedInLink = newinfo.LinkedInLink;
+            finaluser.GithubLink = svm.GithubLink;
+            finaluser.FacebookLink = svm.FacebookLink;
+            finaluser.LinkedInLink = svm.LinkedInLink;
 
             return finaluser;
 
         }
 
-        private ApplicationUser UpdateEducation(ApplicationUser finaluser, ApplicationUser newinfo)
+        private ApplicationUser UpdateEducation(ApplicationUser finaluser, EducationViewModel evm)
         { 
 
-            finaluser.Edu1_Title = newinfo.Edu1_Title;
-            finaluser.Edu1_SchoolName = newinfo.Edu1_SchoolName;
-            finaluser.Edu1_CompletionDate = newinfo.Edu1_CompletionDate;
-            finaluser.Edu1_BodyText = newinfo.Edu1_BodyText;
+            finaluser.Edu1_Title = evm.Edu1_Title;
+            finaluser.Edu1_SchoolName = evm.Edu1_SchoolName;
+            finaluser.Edu1_CompletionDate = evm.Edu1_CompletionDate;
+            finaluser.Edu1_BodyText = evm.Edu1_BodyText;
 
-            finaluser.Edu2_Title = newinfo.Edu2_Title;
-            finaluser.Edu2_SchoolName = newinfo.Edu2_SchoolName;
-            finaluser.Edu2_CompletionDate = newinfo.Edu2_CompletionDate;
-            finaluser.Edu2_BodyText = newinfo.Edu2_BodyText;
+            finaluser.Edu2_Title = evm.Edu2_Title;
+            finaluser.Edu2_SchoolName = evm.Edu2_SchoolName;
+            finaluser.Edu2_CompletionDate = evm.Edu2_CompletionDate;
+            finaluser.Edu2_BodyText = evm.Edu2_BodyText;
 
-            finaluser.Edu3_Title = newinfo.Edu3_Title;
-            finaluser.Edu3_SchoolName = newinfo.Edu3_SchoolName;
-            finaluser.Edu3_CompletionDate = newinfo.Edu3_CompletionDate;
-            finaluser.Edu3_BodyText = newinfo.Edu3_BodyText;
+            finaluser.Edu3_Title = evm.Edu3_Title;
+            finaluser.Edu3_SchoolName = evm.Edu3_SchoolName;
+            finaluser.Edu3_CompletionDate = evm.Edu3_CompletionDate;
+            finaluser.Edu3_BodyText = evm.Edu3_BodyText;
 
             return finaluser;
 
         }
 
-        private ApplicationUser UpdateWork(ApplicationUser finaluser, ApplicationUser newinfo)
+        private ApplicationUser UpdateWork(ApplicationUser finaluser, WorkViewModel wvm)
         {
 
-            finaluser.Wrk1_CompanyName = newinfo.Wrk1_CompanyName;
-            finaluser.Wrk1_CompanyPosition = newinfo.Wrk1_CompanyPosition;
-            finaluser.Wrk1_StartDate = newinfo.Wrk1_StartDate;
-            finaluser.Wrk1_EndDate = newinfo.Wrk1_EndDate;
-            finaluser.Wrk1_BodyText = newinfo.Wrk1_BodyText;
+            finaluser.Wrk1_CompanyName = wvm.Wrk1_CompanyName;
+            finaluser.Wrk1_CompanyPosition = wvm.Wrk1_CompanyPosition;
+            finaluser.Wrk1_StartDate = wvm.Wrk1_StartDate;
+            finaluser.Wrk1_EndDate = wvm.Wrk1_EndDate;
+            finaluser.Wrk1_BodyText = wvm.Wrk1_BodyText;
 
-            finaluser.Wrk2_CompanyName = newinfo.Wrk2_CompanyName;
-            finaluser.Wrk2_CompanyPosition = newinfo.Wrk2_CompanyPosition;
-            finaluser.Wrk2_StartDate = newinfo.Wrk2_StartDate;
-            finaluser.Wrk2_EndDate = newinfo.Wrk2_EndDate;
-            finaluser.Wrk2_BodyText = newinfo.Wrk2_BodyText;
+            finaluser.Wrk2_CompanyName = wvm.Wrk2_CompanyName;
+            finaluser.Wrk2_CompanyPosition = wvm.Wrk2_CompanyPosition;
+            finaluser.Wrk2_StartDate = wvm.Wrk2_StartDate;
+            finaluser.Wrk2_EndDate = wvm.Wrk2_EndDate;
+            finaluser.Wrk2_BodyText = wvm.Wrk2_BodyText;
 
-            finaluser.Wrk3_CompanyName = newinfo.Wrk3_CompanyName;
-            finaluser.Wrk3_CompanyPosition = newinfo.Wrk3_CompanyPosition;
-            finaluser.Wrk3_StartDate = newinfo.Wrk3_StartDate;
-            finaluser.Wrk3_EndDate = newinfo.Wrk3_EndDate;
-            finaluser.Wrk3_BodyText = newinfo.Wrk3_BodyText;
+            finaluser.Wrk3_CompanyName = wvm.Wrk3_CompanyName;
+            finaluser.Wrk3_CompanyPosition = wvm.Wrk3_CompanyPosition;
+            finaluser.Wrk3_StartDate = wvm.Wrk3_StartDate;
+            finaluser.Wrk3_EndDate = wvm.Wrk3_EndDate;
+            finaluser.Wrk3_BodyText = wvm.Wrk3_BodyText;
 
             return finaluser;
 
 
         }
 
-        private ApplicationUser UpdateSkills(ApplicationUser finaluser, ApplicationUser newinfo)
+        private ApplicationUser UpdateSkills(ApplicationUser finaluser, SkillsViewModel svm)
         {
 
-            finaluser.Skill1_ParentSkill = newinfo.Skill1_ParentSkill;
-            finaluser.Skill1_ChildSkill1Name = newinfo.Skill1_ChildSkill1Name;
-            finaluser.Skill1_ChildSkill1Percent = newinfo.Skill1_ChildSkill1Percent;
-            finaluser.Skill1_ChildSkill2Name = newinfo.Skill1_ChildSkill2Name;
-            finaluser.Skill1_ChildSkill2Percent = newinfo.Skill1_ChildSkill2Percent;
-            finaluser.Skill1_ChildSkill3Name = newinfo.Skill1_ChildSkill3Name;
-            finaluser.Skill1_ChildSkill3Percent = newinfo.Skill1_ChildSkill3Percent;
+            finaluser.Skill1_ParentSkill = svm.Skill1_ParentSkill;
+            finaluser.Skill1_ChildSkill1Name = svm.Skill1_ChildSkill1Name;
+            finaluser.Skill1_ChildSkill1Percent = svm.Skill1_ChildSkill1Percent;
+            finaluser.Skill1_ChildSkill2Name = svm.Skill1_ChildSkill2Name;
+            finaluser.Skill1_ChildSkill2Percent = svm.Skill1_ChildSkill2Percent;
+            finaluser.Skill1_ChildSkill3Name = svm.Skill1_ChildSkill3Name;
+            finaluser.Skill1_ChildSkill3Percent = svm.Skill1_ChildSkill3Percent;
 
-            finaluser.Skill2_ParentSkill = newinfo.Skill2_ParentSkill;
-            finaluser.Skill2_ChildSkill1Name = newinfo.Skill2_ChildSkill1Name;
-            finaluser.Skill2_ChildSkill1Percent = newinfo.Skill2_ChildSkill1Percent;
-            finaluser.Skill2_ChildSkill2Name = newinfo.Skill2_ChildSkill2Name;
-            finaluser.Skill2_ChildSkill2Percent = newinfo.Skill2_ChildSkill2Percent;
-            finaluser.Skill2_ChildSkill3Name = newinfo.Skill2_ChildSkill3Name;
-            finaluser.Skill2_ChildSkill3Percent = newinfo.Skill2_ChildSkill3Percent;
+            finaluser.Skill2_ParentSkill = svm.Skill2_ParentSkill;
+            finaluser.Skill2_ChildSkill1Name = svm.Skill2_ChildSkill1Name;
+            finaluser.Skill2_ChildSkill1Percent = svm.Skill2_ChildSkill1Percent;
+            finaluser.Skill2_ChildSkill2Name = svm.Skill2_ChildSkill2Name;
+            finaluser.Skill2_ChildSkill2Percent = svm.Skill2_ChildSkill2Percent;
+            finaluser.Skill2_ChildSkill3Name = svm.Skill2_ChildSkill3Name;
+            finaluser.Skill2_ChildSkill3Percent = svm.Skill2_ChildSkill3Percent;
 
-            finaluser.Skill3_ParentSkill = newinfo.Skill3_ParentSkill;
-            finaluser.Skill3_ChildSkill1Name = newinfo.Skill3_ChildSkill1Name;
-            finaluser.Skill3_ChildSkill1Percent = newinfo.Skill3_ChildSkill1Percent;
-            finaluser.Skill3_ChildSkill2Name = newinfo.Skill3_ChildSkill2Name;
-            finaluser.Skill3_ChildSkill2Percent = newinfo.Skill3_ChildSkill2Percent;
-            finaluser.Skill3_ChildSkill3Name = newinfo.Skill3_ChildSkill3Name;
-            finaluser.Skill3_ChildSkill3Percent = newinfo.Skill3_ChildSkill3Percent;
+            finaluser.Skill3_ParentSkill = svm.Skill3_ParentSkill;
+            finaluser.Skill3_ChildSkill1Name = svm.Skill3_ChildSkill1Name;
+            finaluser.Skill3_ChildSkill1Percent = svm.Skill3_ChildSkill1Percent;
+            finaluser.Skill3_ChildSkill2Name = svm.Skill3_ChildSkill2Name;
+            finaluser.Skill3_ChildSkill2Percent = svm.Skill3_ChildSkill2Percent;
+            finaluser.Skill3_ChildSkill3Name = svm.Skill3_ChildSkill3Name;
+            finaluser.Skill3_ChildSkill3Percent = svm.Skill3_ChildSkill3Percent;
 
             return finaluser;
 

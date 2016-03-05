@@ -1,7 +1,8 @@
-﻿@{ 
-    Layout = "";
+﻿@model HastyResume.ViewModels.Resume.EducationViewModel
+
+@{
+    Layout = "_LayoutNoNav";
 }
-@model HastyResume.Models.ApplicationUser
 @addTagHelper "HastyResume.EduTagHelper,HastyResume"
 <!DOCTYPE html>
 <html lang="en">
@@ -10,8 +11,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content='>
+    <meta name="author" content='>
 
     <title>Education History - Hasty Resume</title>
 
@@ -30,6 +31,10 @@
 
     <!-- jQuery -->
     <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+    
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -39,7 +44,9 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-   
+   @{ 
+       var s = Html.Raw("<div class='form - group'>< abel asp-for= 'Edu1_Title' > Field Of Study:</Label><input asp-for='Edu1_Title' class='form-control' id='Edu1_Title' placeholder='Computer Science'/> <span asp-validation-for='Edu1_Title' class='text - danger' /></div><div class='form - group'><label asp-for='Edu1_SchoolName'>School Name:</label><input  asp-for='Edu1_SchoolName' class='form - control' id='Edu1_SchoolName' placeholder='FIU' /><span asp-validation-for='Edu1_SchoolName' class='text-danger' /></div><br><div class='form - group'><label asp-for='Edu1_CompletionDate'>Completion Date:</label><input  asp-for='Edu1_CompletionDate' class='form - control' id='Edu1_CompletionDate' placeholder='mm / dd / yyyy' /><span asp-validation-for='Edu1_CompletionDate' class='text - danger' /></div><br><div class='form - group'><label asp-for='Edu2_BodyText'>What did you learn:</label><input  asp-for='Edu2_BodyText' class='form - control' id='Edu2_BodyText' placeholder='...' /><span asp-validation-for='Edu2_BodyText' class='text-danger /></div> ");
+   }
 
 </head>
 
@@ -51,20 +58,31 @@
                 <h1 class="text-center">Education History</h1>
                 <hr style="border-width:3px;border-color:orange;">
                 <form asp-action="Education">
-                    <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
                     <div class="form-group">
+                    <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
                         <section id="eduFieldWrapper">
-                            <label asp-for="Edu1_SchoolName">Institution: </label>/>
-                            <input asp-for="Edu1_SchoolName" class="form-control" id="schoolName" placeholder="School Name">
-                            <span asp-validation-for="Edu1_SchoolName" class="text-danger" />
+                            <div class="form-group">
+                                <label asp-for="Edu1_Title">Field Of Study:</label>
+                                <input asp-for="Edu1_Title" class="form-control" id="Edu1_Title" placeholder="Computer Science" />
+                                <span asp-validation-for="Edu1_Title" class="text-danger" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Edu1_SchoolName">School Name:</label>
+                                <input asp-for="Edu1_SchoolName" class="form-control" id="Edu1_SchoolName" placeholder="FIU" />
+                                <span asp-validation-for="Edu1_SchoolName" class="text-danger" />
+                            </div>
                             <br>
-                            <label asp-for="Edu1_CompletionDate">Completion Date:</label>
-                            <input asp-for="Edu1_CompletionDate" class="form-control" id="completionDate" placeholder="mm/dd/yy">
-                            <span asp-validation-for="Edu1_CompletionDate" class="text-danger"/>
+                            <div class="form-group">
+                                <label asp-for="Edu1_CompletionDate">Completion Date:</label>
+                                <input asp-for="Edu1_CompletionDate" class="form-control" id="Edu1_CompletionDate" placeholder="mm/dd/yyyy" />
+                                <span asp-validation-for="Edu1_CompletionDate" class="text-danger" />
+                            </div>
                             <br>
-                            <label asp-for="Edu1_BodyText">Tell Us More:</label>
-                            <input asp-for="Edu1_BodyText" textarea style="max-width:100%" type="text" class="form-control" id="eduText">
-                            <span asp-validation-for="Edu1_BodyText" class="text-danger"/>
+                            <div class="form-group">
+                                <label asp-for="Edu2_BodyText">What did you learn:</label>
+                                <input asp-for="Edu2_BodyText" class="form-control" id="Edu2_BodyText" placeholder="..." />
+                                <span asp-validation-for="Edu2_BodyText" class="text-danger" />
+                            </div>
                         </section>
                         <hr>
                         <div class="text-center">
@@ -87,21 +105,24 @@
             var addButton = $("#addFieldGroup");
 
             var n = 1;
-            html = "<br><hr style='color:#1a1a1a;border-width:3px;'><br><label for='Edu" + String(n) + "_Title'>Institution:</label><input type='text' class='form-control' id='Edu" + String(n) + "_SchoolTitle' placeholder='School Name'></input><br><label for='Edu" + String(n) + "_CompletionDate" + String(n) + "'>Completion Date:</label><input type='text' class='form-control' id='Edu" + String(n) + "_CompletionDate' placeholder='mm/dd/yy'></input><br><label for='Edu" + String(n) + "_BodyText'><br>Tell Us More:</label><br>" +
-            "<textarea style='max-width:100%' type='text' class='form-control' id='Edu" + String(n) + "_BodyText'></textarea>";
 
+            function out(n) {
+                        html = "<div class='form-group'><Label asp-for='Edu1_Title'>FieldOfStudy:</Label><input  asp-for='Edu1_Title'class='form-control'id='Edu1_Title'placeholder='ComputerScience'/><spanasp-validation-for='Edu1_Title'class='text-danger'/></div><divclass='form-group'><labelasp-for='Edu1_SchoolName'>SchoolName:</label><inputasp-for='Edu1_SchoolName'class='form-control'id='Edu1_SchoolName'placeholder='FIU'/><spanasp-validation-for='Edu1_SchoolName'class='text-danger'/></div><br><divclass='form-group'><labelasp-for='Edu1_CompletionDate'>CompletionDate:</label><inputasp-for='Edu1_CompletionDate'class='form-control'id='Edu1_CompletionDate'placeholder='mm/dd/yyyy'/><spanasp-validation-for='Edu1_CompletionDate'class='text-danger'/></div><br><divclass='form-group'><labelasp-for='Edu2_BodyText'>Whatdidyoulearn:</label><inputasp-for='Edu2_BodyText'class='form-control'id='Edu2_BodyText'placeholder='...'/><spanasp-validation-for='Edu2_BodyText'class='text-danger/></div>"
+          return html;
+            }
 
             addButton.click(function (e) {
+                //alert("clicked");
                 e.preventDefault();
                 if (n < maxFields) {
                     n++;
-                    wrapper.append(html);
+                    wrapper.append(out(n));
                 }
                 if (n == 3) {
                     $("#addFieldGroup").remove();
                 }
             })
-        });
+        })
 
     </script>
 </body>
