@@ -11,6 +11,8 @@ namespace HastyResume.Models
     public class ApplicationUser : IdentityUser
     {
 
+
+        public string CareerField { get; set; }
         public bool ResumeCreated { get; set; }
         [Required(ErrorMessage = "Everyone has a first name!")]
         public string FirstName { get; set; }
