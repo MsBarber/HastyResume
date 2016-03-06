@@ -43,6 +43,9 @@ namespace HastyResume
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddSession();
+            services.AddCaching();
+
             services.AddApplicationInsightsTelemetry(Configuration);
 
             services.AddEntityFramework()
@@ -99,6 +102,9 @@ namespace HastyResume
             app.UseStaticFiles();
 
             app.UseIdentity();
+
+            app.UseSession();
+            
 
             // To configure external authentication please see http://go.microsoft.com/fwlink/?LinkID=532715
 
