@@ -208,6 +208,27 @@ body#step-three {
     color: #fff;
 }
 
-.hidden {
-    display: none;
+/*Slider*/
+
+.output-0,
+.output-1,
+.output-2,
+.output-3,
+.output-4,
+.output-5,
+.output-6,
+.output-7,
+.output-8,
+.output-9 {
+    font: .8em sans-serif;
+    padding: 20px 0 20px 0;
+    float: left;
+    font-weight: 100;
+    text-align: center;
+    width: 100%;
+}
+
+.hidden {display: none;}
+.slider-volume {
+    width: 100%!important;
 }
