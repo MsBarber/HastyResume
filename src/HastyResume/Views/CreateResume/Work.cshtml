@@ -104,26 +104,18 @@
 
     $(document).ready(function() {
         var maxFields   = 3;
-        var wrapper     = $("#eduFieldWrapper");
-        var addButton   = $("#addFieldGroup");
-
         var n = 1;
-
-        function out(n) {
-            html = "<br><hr style='color:#1a1a1a;border-width:3px;'><br><label asp-for='Wrk" + String(n) + "_CompanyName'>CompanyName:</label><input asp-for='Wrk " + String(n) + "_CompanyName' class='form-control' id='Wrk" + String(n) + "_CompanyName" + String(n) + "' placeholder='Company Name'></input><br><label for='Wrk" + String(n) + "_CompanyPosition'>Positon</label><input type='text' class='form-control' id='Wrk" + String(n) + "_CompanyPosition' placeholder='(Ex: Manager)'></input><br>     <label for='Wrk" + String(n) + "_StartDate'>Start Date:</label>     <input type='text' class='form-control' id='Wrk" + String(n) + "_StartDate' placeholder='mm/dd/yy'></input> <br> <label for='Wrk" + String(n) + "_EndDate'>End Date:</label>     <input type='text' class='form-control' id='Wrk" + String(n) + "_EndDate' placeholder='mm/dd/yy'></input>          <br><label for='Wrk" + String(n) + "_BodyText'><br>Tell Us More:</label>   <br><textarea style='max-width:100%' type ='text' class='form-control' id='Wrk" + String(n) + "_BodyText'></textarea>"
-            return html;
-        }
-
-        //addButton.click(function(e){
-        //    //alert("clicked");
-        //    e.preventDefault();
-        //    if (n < maxFields) {
-        //        n++;
-        //        wrapper.append(out(n));
-        //    }
-        //    if (n == 3) {
-        //        $("#addFieldGroup").remove();
-        //    }
+        var addButton = $("addFieldGroup");
+        addButton.click(function(e){
+            e.preventDefault();
+            var target = "group";
+            if (n < maxFields) {
+                n++;
+                .append(out(n));
+            }
+            if (n == 3) {
+                $("#addFieldGroup").remove();
+            }
 
         addButton.click(function (e) {
             //alert("asd");
