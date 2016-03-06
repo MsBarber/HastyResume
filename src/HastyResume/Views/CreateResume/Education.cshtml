@@ -155,15 +155,14 @@
             addButton.click(function (e) {
                 //alert("clicked");
                 e.preventDefault();
-		var target = "#group-" + String(n);
+		    var target = "#group-" + String(n);
                 if (n < maxFields) {
                     n++;
-<<<<<<< HEAD
                     wrapper.append(out(n));
-=======
+
                     $(target).removeClass("hidden");
 		    $(target).addClass("animated slideInUp");
->>>>>>> origin/master
+
                 }
                 if (n == 3) {
                     $("#addFieldGroup").remove();
