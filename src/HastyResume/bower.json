@@ -2,6 +2,7 @@
   "name": "ASP.NET",
   "private": true,
   "dependencies": {
+    "jquery-simple-slider": "1.0.0",
     "font-awesome": "*",
     "animate-css": "*",
     "bootstrap": "3.3.5",
