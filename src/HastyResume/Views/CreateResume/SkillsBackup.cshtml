@@ -1,0 +1,134 @@
+﻿@model HastyResume.ViewModels.Resume.SkillsViewModel
+@{ 
+    Layout = "_LayoutNoNav";
+}
+
+
+@*html = "<br><hr><label for=\"Skill"+String(n)+"_ParentSkill\">Skill Category:</label><input type=\"text\" class=\"form-control\" id=\"Skill"+String(n)+"_ParentSkill\" placeholder=\"Skill Name\"></input><br><label for=\"Skill"+String(n)+"1_ChildSkill"+String(n)+"\">Skill Name:</label><input type=\"text\" class=\"form-control\" id=\"Skill1_ChildSkill"+String(n)+"\" placeholder=\"(Ex: Excel)\"></input><br><label for=\"Skill"+String(n)+"_ChildSkill"+String(n)+"Percent\">Skill Level:</label><input style=\"max-width:100%\" type=\"text\" class=\"form-control\" id=\"Skill"+String(n)+"_ChildSkill"+String(n)+"Percent\" placeholder=\"(Ex: 83%)\"></input><br><br><label for=\"Skill"+String(n)+"_ChildSkill"+String(n)+"Name\">Skill Name:</label><input type=\"text\" class=\"form-control\" id=\"Skill"+String(n)+"_ChildSkill"+String(n)+"Name\" placeholder=\"(Ex: Excel)\"></input><br><label for=\"Skill"+String(n)+"_ChildSkill"+String(n)+"Percent\">Skill Level:</label><input style=\"max-width:100%\" type=\"text\" class=\"form-control\" id=\"Skill"+String(n)+"_ChildSkill"+String(n)+"Percent\" placeholder=\"(Ex: 83%)\"></input><br><br><label for=\"Skill"+String(n)+"_ChildSkill"+String(n)+"Name\">Skill Name:</label><input type=\"text\" class=\"form-control\" id=\"Skill"+String(n)+"_ChildSkill"+String(n)+"Name\" placeholder=\"(Ex: Excel)\"></input><br><label for=\"Skill"+String(n)+"_ChildSkill"+String(n)+"Percent\">Skill Level:</label><input style=\"max-width:100%\" type=\"text\" class=\"form-control\" id=\"Skill1_ChildSkillThreePercent\" placeholder=\"(Ex: 83%)\"></input>";*@
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Work History - Hasty Resume</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/css/landing-page.css" rel="stylesheet">
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" type="text/css" href="~/lib/animate-css/animate.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- jQuery -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" type="text/javascript"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body id="step-two">
+    <div class="container">
+        <div class="row">
+            <span class="col-lg-3 col-md-3"></span>
+            <div class="col-lg-6 col-md-6 form-basic animated slideInLeft">
+                <h1 class="text-center">Professional Skills</h1>
+                <hr style="border-width:3px;border-color:orange;">
+                <form asp-action="Skills">
+                    <div class="form-group">
+                        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+                        <section id="eduFieldWrapper">
+                            <div class="form-group">
+                                <label asp-for="Skill1_ParentSkill">Skill Category:</label>
+                                <input asp-for="Skill1_ParentSkill" class="form-control" id="Skill1_ParentSkill" placeholder="(Ex: Communication)">
+                                <span asp-validation-for="Skill1_ParentSkill" class="text-danger" />
+                            </div>
+                            <br>
+                            <ul class="list-group" style="position:relative;left: 2.48em;">
+                                <li>
+                                    <div class="form-group">
+                                        <label asp-for="Skill1_ChildSkill1Name">First Skill Name:</label>
+                                        <input asp-for="Skill1_ChildSkill1Name" class="form-control" id="Skill1_ChildSkill1Name" placeholder="(Ex: Excel)">
+                                        <span asp-validation-for="Skill1_ChildSkill1Name" class="text-danger" />
+                                    </div>
+                                </li>
+                                <br>
+                                <li>
+                                    <div class="form-group">
+                                        <label asp-for="Skill1_ChildSkill1Percent">First Skill Level:</label>
+                                        <!-- <input style="max-width:100%" type="text" class="form-control"></input> -->
+                                        <input asp-for="Skill1_ChildSkill1Percent" id="Skill1_ChildSkillOnePercent" class="form-control" data-slider="true" data-slider-range="0,100" data-slider-theme="volume">
+                                        <span asp-validation-for="Skill1_ChildSkill1Percent" class="text-danger" />
+                                    </div>
+                                </li>
+                                <br>
+                                <li>
+                                    <div class="form-group">
+                                        <label asp-for="Skill1_ChildSkill2Name">Second Skill Name:</label>
+                                        <input asp-for="Skill1_ChildSkill2Name" class="form-control" id="Skill1_ChildSkillTwoName" placeholder="(Ex: Excel)">
+                                        <span asp-validation-for="Skill1_ChildSkill2Name" class="text-danger" />
+                                    </div>
+                                </li>
+                                <br>
+                                <li>
+                                    <div class="form-group">
+                                        <label asp-for="Skill1_ChildSkill2Percent">Second Skill Level:</label>
+                                        <input asp-for="Skill1_ChildSkill2Percent" type="text" class="form-control" id="Skill1_ChildSkillOnePercent" placeholder="(Ex: 83%)">
+                                        <span asp-validation-for="Skill1_ChildSkill2Percent" class="text-danger" />
+                                    </div>
+                                </li>
+                                <br>
+                                <li>
+                                    <div class="form-group">
+                                        <label asp-for="Skill1_ChildSkill3Name">Third Skill Name:</label>
+                                        <input asp-for="Skill1_ChildSkill3Name" class="form-control" id="Skill1_ChildSkillThreeName" placeholder="(Ex: Excel)" />
+                                        <span asp-validation-for="Skill1_ChildSkill3Name" class="text-danger" />
+                                    </div>
+                                </li>
+                                <br>
+                                <div class="form-group">
+                                    <label asp-for="Skill1_ChildSkill3Percent">Third Skill Level:</label>
+                                    <input asp-for="Skill1_ChildSkill3Percent" type="text" class="form-control" id="Skill1_ChildSkillThreePercent" placeholder="(Ex: 83%)">
+                                    <span asp-validation-for="Skill1_ChildSkill3Percent" class="text-danger" />
+                                </div>
+                            </ul>
+                        </section>
+                        <hr>
+                        <div class="text-center">
+                            <div class="row">
+                                <button id="theButton" class="btn btn-success">
+                                    <a href="#" id="addFieldGroup" class="text-white">Add Group</a>
+                                </button>
+
+                                <button type="submit" class="btn btn-warning">
+                                    <a href="#" class="text-white">Continue</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <span class="col-lg-3 col-md-3"></span>
+        </div>
+    </div>
+</body>
+
+
+
