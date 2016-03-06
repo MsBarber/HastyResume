@@ -88,7 +88,7 @@
 
                             <br><br>
 
-                            <div class="hidden">
+                            <div class="hidden" id="group-1">
                                 <div class="form-group">
                                     <label asp-for="Wrk2_CompanyName">Company: </label>
                                     <input asp-for="Wrk2_CompanyName" class="form-control" id="Wrk2_CompanyName" placeholder="Company Name">
@@ -122,7 +122,7 @@
 
                             <br><br>
 
-                            <div class="hidden">
+                            <div class="hidden" id="group-2">
                                 <div class="form-group">
                                     <label asp-for="Wrk3_CompanyName">Company: </label>
                                     <input asp-for="Wrk3_CompanyName" class="form-control" id="Wrk3_CompanyName" placeholder="Company Name">
@@ -173,17 +173,19 @@
     $(document).ready(function() {
         var maxFields   = 3;
         var n = 1;
-        var addButton = $("addFieldGroup");
+        var addButton = $('#addFieldGroup');
+
+
         addButton.click(function(e){
             e.preventDefault();
-            var target = "group-" + String(n);
+            var target = '#group-' + String(n);
             if (n < maxFields) {
                 n++;
-                $(target).removeClass("hidden");
-                $(target).addClass("animated slideInUp");
+                $(target).removeClass('hidden');
+                $(target).addClass('animated slideInUp');
             }
             if (n == 3) {
-                $("#addFieldGroup").remove();
+                addButton.remove();
             }
         })
     })

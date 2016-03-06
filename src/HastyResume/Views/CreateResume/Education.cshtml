@@ -1,7 +1,9 @@
 ﻿@{ 
     Layout = "";
 }
-@model HastyResume.Models.ApplicationUser
+@model HastyResume.ViewModels.Resume.EducationViewModel
+
+
 @addTagHelper "HastyResume.EduTagHelper,HastyResume"
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +32,9 @@
 
     <!-- jQuery -->
     <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -51,53 +56,70 @@
                 <h1 class="text-center">Education History</h1>
                 <hr style="border-width:3px;border-color:orange;">
                 <form asp-action="Education">
-                    <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
                     <div class="form-group">
+                    <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
                         <section id="eduFieldWrapper">
-                            <label asp-for="Edu1_SchoolName">Institution: </label>/>
-                            <input asp-for="Edu1_SchoolName" class="form-control" id="schoolName" placeholder="School Name">
-                            <span asp-validation-for="Edu1_SchoolName" class="text-danger" />
+                            <div class="form-group">
+                                <label asp-for="Edu1_SchoolName">Institution: </label>
+                                <input asp-for="Edu1_SchoolName" class="form-control" id="schoolName" placeholder="School Name">
+                                <span asp-validation-for="Edu1_SchoolName" class="text-danger" />
+                            </div>
                             <br>
-                            <label asp-for="Edu1_CompletionDate">Completion Date:</label>
-                            <input asp-for="Edu1_CompletionDate" class="form-control" id="completionDate" placeholder="mm/dd/yy">
-                            <span asp-validation-for="Edu1_CompletionDate" class="text-danger"/>
+                            <div class="form-group">
+                                <label asp-for="Edu1_CompletionDate">Completion Date:</label>
+                                <input asp-for="Edu1_CompletionDate" class="form-control" id="completionDate" value ="" placeholder="mm/dd/yy">
+                                <span asp-validation-for="Edu1_CompletionDate" class="text-danger" />
+                            </div>
                             <br>
-                            <label asp-for="Edu1_BodyText">Tell Us More:</label>
-                            <input asp-for="Edu1_BodyText" textarea style="max-width:100%" type="text" class="form-control" id="eduText">
-                            <span asp-validation-for="Edu1_BodyText" class="text-danger"/>
+                            <div class="form-group">
+                                <label asp-for="Edu1_BodyText">Tell Us More:</label>
+                                <input asp-for="Edu1_BodyText" textarea style="max-width:100%" type="text" class="form-control" id="eduText">
+                                <span asp-validation-for="Edu1_BodyText" class="text-danger" />
+                            </div>
                             
                             <br>
 			                <br>
                             
-                            <div class="hidden">
-                                <label asp-for="Edu2_SchoolName">Institution: </label>/>
-                                <input asp-for="Edu2_SchoolName" class="form-control" id="schoolName" placeholder="School Name">
-                                <span asp-validation-for="Edu2_SchoolName" class="text-danger" />
+                            <div class="hidden" id="group-1">
+                                <div class="form-group">
+                                    <label asp-for="Edu2_SchoolName">Institution: </label>
+                                    <input asp-for="Edu2_SchoolName" class="form-control" id="schoolName" placeholder="School Name">
+                                    <span asp-validation-for="Edu2_SchoolName" class="text-danger" />
+                                </div>
                                 <br>
-                                <label asp-for="Edu2_CompletionDate">Completion Date:</label>
-                                <input asp-for="Edu2_CompletionDate" class="form-control" id="completionDate" placeholder="mm/dd/yy">
-                                <span asp-validation-for="Edu2_CompletionDate" class="text-danger"/>
+                                <div class="form-group">
+                                    <label asp-for="Edu2_CompletionDate">Completion Date:</label>
+                                    <input asp-for="Edu2_CompletionDate" class="form-control" id="completionDate" placeholder="mm/dd/yy">
+                                    <span asp-validation-for="Edu2_CompletionDate" class="text-danger" />
+                                </div>
                                 <br>
-                                <label asp-for="Edu2_BodyText">Tell Us More:</label>
-                                <input asp-for="Edu2_BodyText" textarea style="max-width:100%" type="text" class="form-control" id="eduText">
-                                <span asp-validation-for="Edu2_BodyText" class="text-danger"/> 
-                            </div>
+                                <div class="form-group">
+                                    <label asp-for="Edu2_BodyText">Tell Us More:</label>
+                                    <input asp-for="Edu2_BodyText" textarea style="max-width:100%" type="text" class="form-control" id="eduText">
+                                    <span asp-validation-for="Edu2_BodyText" class="text-danger" />
+                                </div>                      </div>
 
                             <br>
                             <br>
 
-                            <div class="hidden">
-                                <label asp-for="Edu3_SchoolName">Institution: </label>/>
-                                <input asp-for="Edu3_SchoolName" class="form-control" id="schoolName" placeholder="School Name">
-                                <span asp-validation-for="Edu3_SchoolName" class="text-danger" />
+                            <div class="hidden" id="group-2">
+                                <div class="form-group">
+                                    <label asp-for="Edu3_SchoolName">Institution: </label>
+                                    <input asp-for="Edu3_SchoolName" class="form-control" id="schoolName" placeholder="School Name">
+                                    <span asp-validation-for="Edu3_SchoolName" class="text-danger" />
+                                </div>
                                 <br>
-                                <label asp-for="Edu3_CompletionDate">Completion Date:</label>
-                                <input asp-for="Edu3_CompletionDate" class="form-control" id="completionDate" placeholder="mm/dd/yy">
-                                <span asp-validation-for="Edu3_CompletionDate" class="text-danger"/>
+                                <div class="form-group">
+                                    <label asp-for="Edu3_CompletionDate">Completion Date:</label>
+                                    <input asp-for="Edu3_CompletionDate" class="form-control" id="completionDate" placeholder="mm/dd/yy">
+                                    <span asp-validation-for="Edu3_CompletionDate" class="text-danger" />
+                                </div>
                                 <br>
-                                <label asp-for="Edu3_BodyText">Tell Us More:</label>
-                                <input asp-for="Edu3_BodyText" textarea style="max-width:100%" type="text" class="form-control" id="eduText">
-                                <span asp-validation-for="Edu3_BodyText" class="text-danger"/> 
+                                <div class="form-group">
+                                    <label asp-for="Edu3_BodyText">Tell Us More:</label>
+                                    <input asp-for="Edu3_BodyText" textarea style="max-width:100%" type="text" class="form-control" id="eduText">
+                                    <span asp-validation-for="Edu3_BodyText" class="text-danger" />
+                                </div>
                             </div>	
                             </section>
                         <hr>
@@ -118,6 +140,7 @@
         $(document).ready(function () {
             var maxFields = 3;
             var n = 1;
+            var addButton = $('#addFieldGroup');
             
             addButton.click(function (e) {
                 e.preventDefault();

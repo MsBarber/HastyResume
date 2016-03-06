@@ -105,7 +105,7 @@ namespace HastyResume.Controllers
             if (ModelState.IsValid)
             {
                 user = UpdateSocial(user, svm);
-               // await _userManager.UpdateAsync(user);
+                await _userManager.UpdateAsync(user);
                 return RedirectToAction("Education");
             }
             return View(svm);
@@ -120,13 +120,12 @@ namespace HastyResume.Controllers
         public async Task<IActionResult> Education(EducationViewModel evm)
         {
             var user = await GetCurrentUserAsync();
-            if (ModelState.IsValid)
-            {
+            
                 user = UpdateEducation(user, evm);
-               // await _userManager.UpdateAsync(user);
+               await _userManager.UpdateAsync(user);
                 return RedirectToAction("Work");
-            }
-            return View(evm);
+            
+            //return View(evm);
         }
 
 
@@ -139,13 +138,10 @@ namespace HastyResume.Controllers
         public async Task<IActionResult> Work(WorkViewModel wvm)
         {
             var user = await GetCurrentUserAsync();
-            if (ModelState.IsValid)
-            {
                 user = UpdateWork(user, wvm);
-              //  await _userManager.UpdateAsync(user);
+                await _userManager.UpdateAsync(user);
                 return RedirectToAction("Skills");
-            }
-            return View(wvm);
+            
         }
 
         public IActionResult Skills()
@@ -157,13 +153,11 @@ namespace HastyResume.Controllers
         public async Task<IActionResult> Skills(SkillsViewModel svm)
         {
             var user = await GetCurrentUserAsync();
-            if (ModelState.IsValid)
-            {
+            
                 user = UpdateSkills(user, svm);
                 await _userManager.UpdateAsync(user);
                 return RedirectToAction("Index","Account");
-            }
-            return View(svm);
+
         }
 
         [HttpPost]
