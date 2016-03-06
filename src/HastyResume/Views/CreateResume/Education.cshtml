@@ -117,21 +117,15 @@
 
         $(document).ready(function () {
             var maxFields = 3;
-            var wrapper = $("#eduFieldWrapper");
-            var addButton = $("#addFieldGroup");
-
             var n = 1;
-            html = "<br><hr style='color:#1a1a1a;border-width:3px;'><br><label for='Edu" + String(n) + "_Title'>Institution:</label><input type='text' class='form-control' id='Edu" + String(n) + "_SchoolTitle' placeholder='School Name'></input><br><label for='Edu" + String(n) + "_CompletionDate" + String(n) + "'>Completion Date:</label><input type='text' class='form-control' id='Edu" + String(n) + "_CompletionDate' placeholder='mm/dd/yy'></input><br><label for='Edu" + String(n) + "_BodyText'><br>Tell Us More:</label><br>" +
-            "<textarea style='max-width:100%' type='text' class='form-control' id='Edu" + String(n) + "_BodyText'></textarea>";
-
-
+            
             addButton.click(function (e) {
                 e.preventDefault();
-		var target = "#group-" + String(n);
+		        var target = "#group-" + String(n);
                 if (n < maxFields) {
                     n++;
                     $(target).removeClass("hidden");
-		    $(target).addClass("animated slideInUp");
+		            $(target).addClass("animated slideInUp");
                 }
                 if (n == 3) {
                     $("#addFieldGroup").remove();
