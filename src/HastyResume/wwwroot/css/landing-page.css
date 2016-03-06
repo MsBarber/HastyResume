@@ -207,3 +207,7 @@ body#step-three {
 .text-white {
     color: #fff;
 }
+
+.hidden {
+    display: none;
+}
