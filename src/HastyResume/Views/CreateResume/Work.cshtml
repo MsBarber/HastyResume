@@ -114,16 +114,20 @@
             return html;
         }
 
-        addButton.click(function(e){
-            //alert("clicked");
-            e.preventDefault();
-            if (n < maxFields) {
-                n++;
-                wrapper.append(out(n));
-            }
-            if (n == 3) {
-                $("#addFieldGroup").remove();
-            }
+        //addButton.click(function(e){
+        //    //alert("clicked");
+        //    e.preventDefault();
+        //    if (n < maxFields) {
+        //        n++;
+        //        wrapper.append(out(n));
+        //    }
+        //    if (n == 3) {
+        //        $("#addFieldGroup").remove();
+        //    }
+
+        addButton.click(function (e) {
+            //alert("asd");
+            Wrk1_BodyText.textContent += "asdasd";
         })
     })
 

@@ -53,42 +53,61 @@
                 <hr style="border-width:3px;border-color:orange;">
                 <form asp-action="Skills">
                     <div class="form-group">
+                        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
                         <section id="eduFieldWrapper">
-                            <label for="Skill1_ParentSkill">Skill Category:</label>
-                            <input type="text" class="form-control" id="Skill1_ParentSkill" placeholder="(Ex: Communication)"></input>
+                            <div class="form-group">
+                                <label asp-for="Skill1_ParentSkill">Skill Category:</label>
+                                <input asp-for="Skill1_ParentSkill" class="form-control" id="Skill1_ParentSkill" placeholder="(Ex: Communication)">
+                                <span asp-validation-for="Skill1_ParentSkill" class="text-danger" />
+                            </div>
                             <br>
                             <ul class="list-group" style="position:relative;left: 2.48em;">
                                 <li>
                                     <div class="form-group">
-                                        <label for="Skill1_ChildSkill1Name">First Skill Name:</label>
-                                        <input type="text" class="form-control" id="Skill1_ChildSkill1Name" placeholder="(Ex: Excel)"></input>
+                                        <label asp-for="Skill1_ChildSkill1Name">First Skill Name:</label>
+                                        <input asp-for="Skill1_ChildSkill1Name" class="form-control" id="Skill1_ChildSkill1Name" placeholder="(Ex: Excel)">
+                                        <span asp-validation-for="Skill1_ChildSkill1Name" class="text-danger" />
                                     </div>
                                 </li>
                                 <br>
                                 <li>
-                                    <label for="Skill1_ChildSkillOnePercent">First Skill Level:</label>
-                                    <!-- <input style="max-width:100%" type="text" class="form-control"></input> -->
-                                    <input type="text" id="Skill1_ChildSkillOnePercent" class="form-control" data-slider="true" data-slider-range="0,100" data-slider-theme="volume">
-                                    <span class="output">0</span>
+                                    <div class="form-group">
+                                        <label asp-for="Skill1_ChildSkill1Percent">First Skill Level:</label>
+                                        <!-- <input style="max-width:100%" type="text" class="form-control"></input> -->
+                                        <input asp-for="Skill1_ChildSkill1Percent" id="Skill1_ChildSkillOnePercent" class="form-control" data-slider="true" data-slider-range="0,100" data-slider-theme="volume">
+                                        <span asp-validation-for="Skill1_ChildSkill1Percent" class="text-danger" />
+                                    </div>
                                 </li>
                                 <br>
                                 <li>
-                                    <label for="Skill1_ChildSkillTwoName">Second Skill Name:</label>
-                                    <input type="text" class="form-control" id="Skill1_ChildSkillTwoName" placeholder="(Ex: Excel)"></input>
+                                    <div class="form-group">
+                                        <label asp-for="Skill1_ChildSkill2Name">Second Skill Name:</label>
+                                        <input asp-for="Skill1_ChildSkill2Name" class="form-control" id="Skill1_ChildSkillTwoName" placeholder="(Ex: Excel)">
+                                        <span asp-validation-for="Skill1_ChildSkill2Name" class="text-danger" />
+                                    </div>
                                 </li>
                                 <br>
                                 <li>
-                                    <label for="Skill1_ChildSkillTwoPercent">Second Skill Level:</label>
-                                    <input style="max-width:100%" type="text" class="form-control" id="Skill1_ChildSkillOnePercent" placeholder="(Ex: 83%)"></input>
+                                    <div class="form-group">
+                                        <label asp-for="Skill1_ChildSkill2Percent">Second Skill Level:</label>
+                                        <input asp-for="Skill1_ChildSkill2Percent" type="text" class="form-control" id="Skill1_ChildSkillOnePercent" placeholder="(Ex: 83%)">
+                                        <span asp-validation-for="Skill1_ChildSkill2Percent" class="text-danger" />
+                                    </div>
                                 </li>
                                 <br>
                                 <li>
-                                    <label for="Skill1_ChildSkillThreeName">Third Skill Name:</label>
-                                    <input type="text" class="form-control" id="Skill1_ChildSkillThreeName" placeholder="(Ex: Excel)"></input>
+                                    <div class="form-group">
+                                        <label asp-for="Skill1_ChildSkill3Name">Third Skill Name:</label>
+                                        <input asp-for="Skill1_ChildSkill3Name" class="form-control" id="Skill1_ChildSkillThreeName" placeholder="(Ex: Excel)" />
+                                        <span asp-validation-for="Skill1_ChildSkill3Name" class="text-danger" />
+                                    </div>
                                 </li>
                                 <br>
-                                <label for="Skill1_ChildSkillThreePercent">Third Skill Level:</label>
-                                <input style="max-width:100%" type="text" class="form-control" id="Skill1_ChildSkillThreePercent" placeholder="(Ex: 83%)"></input>
+                                <div class="form-group">
+                                    <label asp-for="Skill1_ChildSkill3Percent">Third Skill Level:</label>
+                                    <input asp-for="Skill1_ChildSkill3Percent" type="text" class="form-control" id="Skill1_ChildSkillThreePercent" placeholder="(Ex: 83%)">
+                                    <span asp-validation-for="Skill1_ChildSkill3Percent" class="text-danger" />
+                                </div>
                             </ul>
                         </section>
                         <hr>
