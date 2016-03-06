@@ -108,18 +108,15 @@
         var addButton = $("addFieldGroup");
         addButton.click(function(e){
             e.preventDefault();
-            var target = "group";
+            var target = "group-" + String(n);
             if (n < maxFields) {
                 n++;
-                .append(out(n));
+                $(target).removeClass("hidden");
+                $(target).addClass("animated slideInUp");
             }
             if (n == 3) {
                 $("#addFieldGroup").remove();
             }
-
-        addButton.click(function (e) {
-            //alert("asd");
-            Wrk1_BodyText.textContent += "asdasd";
         })
     })
 
